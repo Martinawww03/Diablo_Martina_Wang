@@ -42,9 +42,17 @@ public class SistemaPatrulla : MonoBehaviour
             CalcularDestino(); //Tendré que calcular el nuevo destido
             
             agent.SetDestination(destinoActual.position);
+
           yield return new WaitUntil(() => agent. remainingDistance<=0); // () ES: expresión lambda (MÉTODO ANONIMO) 
 
+            //Espera una vez llegado al punto entre 0.25 y 3 segundos.
+            yield return new WaitForSeconds(Random.Range(0.25f, 3f));
+
         }
+    }
+    private bool Ejemplo()
+    {
+        return agent.remainingDistance <= 0;
     }
 
     private void CalcularDestino()
