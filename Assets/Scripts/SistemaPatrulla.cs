@@ -6,8 +6,9 @@ using UnityEngine.AI;
 public class SistemaPatrulla : MonoBehaviour
 {
     [SerializeField] private Transform ruta;
-
-    private NavMeshAgent agent;
+    [SerializeField] private Enemigo main;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private float velocidadPatrulla;
 
     private List<Transform> listadosPuntos= new List<Transform>();
 
@@ -24,6 +25,11 @@ public class SistemaPatrulla : MonoBehaviour
 
             listadosPuntos.Add(t);
         }
+    }
+
+    private void OnEnable()
+    {
+        agent.speed = velocidadPatrulla;
     }
 
 
@@ -66,5 +72,16 @@ public class SistemaPatrulla : MonoBehaviour
         }
         destinoActual = listadosPuntos[indiceDestinoActual];
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            StopAllCoroutines(); //Abandonamis la corrutina de patrulla.
+
+            //Le digo a 'main' que active el combate, pasándole el objetivo al que tiene que 
+            main.ActivarCombate(other.transform);
+        }
+    }
+
 }
