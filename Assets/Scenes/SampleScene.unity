@@ -3139,7 +3139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205427689}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37834254, y: 0.34912336, z: -0.15671457, w: 0.84285843}
+  m_LocalRotation: {x: 0.37834257, y: 0.3491234, z: -0.1567146, w: 0.84285843}
   m_LocalPosition: {x: -52.82, y: 80.5, z: -44.501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4960,7 +4960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &319346033
 Transform:
   m_ObjectHideFlags: 0
@@ -5064,7 +5064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37834257, y: 0.3491234, z: -0.1567146, w: 0.84285843}
+  m_LocalRotation: {x: 0.3783426, y: 0.34912342, z: -0.15671465, w: 0.84285843}
   m_LocalPosition: {x: -52.82, y: 80.5, z: -44.501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6094,7 +6094,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &430048608
 Transform:
@@ -12939,7 +12939,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_UseGeometry: 0
-  m_DefaultArea: 0
+  m_DefaultArea: 3
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -12948,7 +12948,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 542b611f13639294eb5d4baa4190aa25, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &966873235
 GameObject:
@@ -17214,7 +17214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 469572902}
   agent: {fileID: 469572899}
-  velocidadCombate: 4
+  velocidadCombate: 5
+  distanciaAtaque: 2.5
+  anim: {fileID: 2963867029893079336}
 --- !u!1 &1199896422
 GameObject:
   m_ObjectHideFlags: 0
@@ -32455,6 +32457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2479818669064240029}
+  - component: {fileID: 2963867029893079336}
   m_Layer: 0
   m_Name: Enemigo Visual
   m_TagString: Untagged
@@ -32462,6 +32465,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &2963867029893079336
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963867029893079335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73fcd4050da999a42bcf4010d22a75ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2971362732493776151
 Transform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -79,5 +80,10 @@ public class Player : MonoBehaviour
             }
         
         }
-    }   
+    }
+
+    public void HacerDanho(float danhoAtaque)
+    {
+        Debug.Log("");
+    }
 }

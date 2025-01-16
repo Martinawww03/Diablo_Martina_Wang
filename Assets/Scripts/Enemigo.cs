@@ -32,4 +32,13 @@ public class Enemigo : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    internal void ActivarPatrulla()
+    {
+        //Deshabilitar combate
+        combate.enabled = false;
+
+        //Habilitar patrulla.
+        patrulla.enabled = true;
+    }
 }
