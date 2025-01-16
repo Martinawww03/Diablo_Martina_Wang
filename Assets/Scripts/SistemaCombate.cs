@@ -63,7 +63,7 @@ public class SistemaCombate : MonoBehaviour
     private void Atacar()
     {
         //HAcer daño al target.
-        main.Target.GetComponent<Player>().HacerDanho();
+       // main.Target.GetComponent<Player>().HacerDanho();
     }
     private void FinAnimacionAtaque()
     {

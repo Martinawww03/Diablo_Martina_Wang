@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc : MonoBehaviour
+public class Npc : MonoBehaviour, IInteractuable
 {
     [SerializeField] private DialogoSO miDialogo;
     [SerializeField] private float duracionRotacion;

@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
         ComprobarInterracion();
 
     }
+    
 
     private void Movimiento()
     {
@@ -82,8 +83,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void HacerDanho(float danhoAtaque)
-    {
-        Debug.Log("");
-    }
+    //public void HacerDanho(float danhoAtaque)
+    //{
+    //    Debug.Log("");
+    //}
 }
