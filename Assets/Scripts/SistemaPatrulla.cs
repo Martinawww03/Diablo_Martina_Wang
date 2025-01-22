@@ -12,13 +12,12 @@ public class SistemaPatrulla : MonoBehaviour
 
     private List<Transform> listadosPuntos= new List<Transform>();
 
-    private int indiceDestinoActual = 0; //MArca el punto al cual debo ir.
+    private int indiceDestinoActual = -1; //MArca el punto al cual debo ir.
 
     private Transform destinoActual; //Marco el destino al cual debo ir.
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         foreach(Transform t in ruta)
         {
             // Añado todos los puntos de ruta al listado.
@@ -70,7 +69,7 @@ public class SistemaPatrulla : MonoBehaviour
         indiceDestinoActual++;
 
         //Si nos hemos quedados sin puntos...
-        if(indiceDestinoActual> listadosPuntos.Count)
+        if(indiceDestinoActual > listadosPuntos.Count)
         {
             indiceDestinoActual = 0; 
         }
