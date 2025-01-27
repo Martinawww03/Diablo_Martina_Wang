@@ -7,13 +7,15 @@ using UnityEngine;
 public class EventManagerSO : ScriptableObject
 {
     //Creo un evento.
-    public event Action OnNuevaMision;
+    public event Action<MisionSO> OnNuevaMision;
 
-    //public void NuevaMision()
-    //{
-    //  //Lanzar/disparar el evento/
-    //  OnNuevaMision.Invoke();
-    //
-    //}
+    
 
+    public void NuevaMision(MisionSO mision)
+    {
+        // Lanzar / disparar el evento/
+
+        //?.-> Invocación Segura.
+         OnNuevaMision?.Invoke(mision);
+    }
 }

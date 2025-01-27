@@ -123,7 +123,7 @@ public class SistemaDialogo : MonoBehaviour
 
         if(dialogoActual.tieneMision)
         {
-            //event
+            eventManager.NuevaMision(dialogoActual.mision);
         }
         
         dialogoActual = null; //Ya no tengo dialogo que escribir

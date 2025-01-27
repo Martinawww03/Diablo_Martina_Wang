@@ -13,9 +13,9 @@ public class SistemaMIsiones : MonoBehaviour
         eventManager.OnNuevaMision += EncenderToggleMision;
     }
 
-    private void EncenderToggleMision()
+    private void EncenderToggleMision(MisionSO mision)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     // Start is called before the first frame update
