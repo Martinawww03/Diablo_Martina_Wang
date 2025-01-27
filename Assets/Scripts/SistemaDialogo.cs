@@ -9,7 +9,8 @@ public class SistemaDialogo : MonoBehaviour
     //Static = (su valor puede cambiaar) que pertenece a la clase
     public static SistemaDialogo sistema;
 
-
+    public static SistemaDialogo sD;
+    public static EventManagerSO eventManager;
 
     [SerializeField] private GameObject marcoDialogo; //Marco a habilitar/deshabilitar
     [SerializeField] private TMP_Text textoDialogo; //El texto donde se veran reflejados los dialogps
@@ -115,12 +116,19 @@ public class SistemaDialogo : MonoBehaviour
     }
     private void FinalizarDialogo()
     {
+        Time.timeScale = 1f;
         marcoDialogo.SetActive(false); //Cerramos el marco de dialogo
         indiceFraceActual = 0; //para que en 
-        escribiendo = false;
+        StopAllCoroutines();
+
+        if(dialogoActual.tieneMision)
+        {
+            //event
+        }
+        
         dialogoActual = null; //Ya no tengo dialogo que escribir
         
-        Time.timeScale = 1;
+        
     }
     
 }

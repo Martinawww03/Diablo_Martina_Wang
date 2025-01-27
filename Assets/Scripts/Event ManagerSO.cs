@@ -1,19 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
  [CreateAssetMenu(menuName ="EventManager")]
-public class EventManagerSO : MonoBehaviour
+public class EventManagerSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Creo un evento.
+    public event Action OnNuevaMision;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //public void NuevaMision()
+    //{
+    //  //Lanzar/disparar el evento/
+    //  OnNuevaMision.Invoke();
+    //
+    //}
+
 }
