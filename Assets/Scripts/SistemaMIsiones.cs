@@ -6,13 +6,6 @@ public class SistemaMIsiones : MonoBehaviour
 {
     [SerializeField] private EventManagerSO eventManager;
     [SerializeField] private GameObject[] tooglesMision; 
-
-    private void OnEnable()
-    {
-        //Me suscribo al evento y lo vinculo con el método.
-        eventManager.OnNuevaMision += EncenderToggleMision;
-    }
-
     private void EncenderToggleMision(MisionSO mision)
     {
         //Alimentos el texto con el contenido de la misión
@@ -28,15 +21,18 @@ public class SistemaMIsiones : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void ActualizarToggleMision(MisionSO mision)
     {
-        
+        //Apuntes
+        //togglesMision[mision.indiceMision].TextoMision.text = mision.ordenIncial;
+        //togglesMision[mision.indiceMision].TextoMision.text += "("+ mision.repeticionActual+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //private void ActualizarToggleMision(MisionSO obj)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+
+   
 }

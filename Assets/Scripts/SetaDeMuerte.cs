@@ -25,9 +25,19 @@ public class SetaDeMuerte : MonoBehaviour, IInteractuable
         outline.enabled = false;
     }
 
-    public void Interactuar()
+    public void Interactuar(Transform interactor)
     {
-        eventManager.ActualizarMision(mision);
+        mision.repeticionActual++;
+
+        //Todavía quedan setas por recoger
+        if(mision.repeticionActual<mision.totalRepeticion)
+        {
+            eventManager.ActualizarMision(mision);
+        }
+        else //Ya hemos terminado de recoger todas las setas.
+        {
+            eventManager.TerminarMision(mision);
+        }
         Destroy(gameObject);
     }
 }

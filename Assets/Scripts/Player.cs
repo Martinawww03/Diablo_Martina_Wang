@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     private void ComprobarInterracion()
     {
         //Si existe un interactuable al cual clické y lleva consigo el script Npc
-        if(ultimoHit != null&&ultimoHit.TryGetComponent(out Npc npc))
+        if(ultimoHit != null&&ultimoHit.TryGetComponent(out IInteractuable interactuable))
         {
             //Actualizo distancia de parada para no "comerme" al Npc
             agent.stoppingDistance = 2f;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             if(!agent.pathPending&&agent.remainingDistance<=agent.stoppingDistance)
             {
                 //y por lo tanto, interatuo con el Npc, alt enter
-                npc.Interactuar(this.transform);
+                ///interactuable.Interactuar(this.transform);
 
                 //me olvido de cual fue el ultimo click, porque solo quiere intectuar UNA VEZ.
                 ultimoHit = null;
