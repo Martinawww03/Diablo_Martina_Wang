@@ -15,7 +15,17 @@ public class SistemaMIsiones : MonoBehaviour
 
     private void EncenderToggleMision(MisionSO mision)
     {
-        
+        //Alimentos el texto con el contenido de la misión
+        //tooglesMision[mision.indiceMision].TextoMision.text = mision.ordenInicial;
+
+        //Y si tiene repetición..
+        if(mision.tieneRepiticion)
+        {
+          //  togglesMision[mision.indiceMision].TextoMision.text += "(" + mision.repeticionActual + "/" + mision.totalRepeticion + ")";
+        }
+
+        tooglesMision[mision.indiceMision].gameObject.SetActive(true);// Enciendo el toggle para que se vea en pantalla.
+
     }
 
     // Start is called before the first frame update
