@@ -48,9 +48,8 @@ public class SistemaDialogo : MonoBehaviour
         dialogoActual = dialogo;
         marcoDialogo.SetActive(true);
 
-        //Posiciono la camera en el punto de este NPC
-       // npcCamera.SetPositionAndRotation
-
+        //Posiciono y ROTO la camera en el punto de este NPC
+        npcCamera.SetPositionAndRotation(cameraPoint.position, cameraPoint.rotation);
 
         StartCoroutine(EscribirFrase());
     }

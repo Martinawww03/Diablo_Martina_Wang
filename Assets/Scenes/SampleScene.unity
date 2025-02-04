@@ -5025,7 +5025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &329685345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10547,11 +10547,11 @@ Transform:
   m_GameObject: {fileID: 745706265}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.46292594, z: -0, w: 0.886397}
-  m_LocalPosition: {x: -1.03, y: 0.8399999, z: -0.5999999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -398.91092, y: -222.77669, z: 4.1324005}
+  m_LocalScale: {x: 0.7459207, y: 0.7459207, z: 0.7459207}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1333845068}
+  m_Father: {fileID: 865133669}
   m_LocalEulerAnglesHint: {x: 0, y: 55.152, z: 0}
 --- !u!1 &753665400
 GameObject:
@@ -12674,6 +12674,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 329685345}
+  - {fileID: 745706269}
   m_Father: {fileID: 117387135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12695,7 +12696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marcoDialogo: {fileID: 329685344}
   textoDialogo: {fileID: 1539137485}
-  npcCamera: {fileID: 0}
+  npcCamera: {fileID: 745706269}
 --- !u!1 &873971741
 GameObject:
   m_ObjectHideFlags: 0
@@ -20547,8 +20548,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 745706269}
+  m_Children: []
   m_Father: {fileID: 1531064751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1346434905
@@ -23248,7 +23248,7 @@ MonoBehaviour:
   miMision: {fileID: 0}
   miDialogo: {fileID: 11400000, guid: 0b4b1ae2b103a234f86eed687667d7fd, type: 2}
   duracionRotacion: 0
-  cameraPoint: {fileID: 0}
+  cameraPoint: {fileID: 745706269}
 --- !u!136 &1531064748
 CapsuleCollider:
   m_ObjectHideFlags: 0
