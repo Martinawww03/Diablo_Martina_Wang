@@ -58,6 +58,7 @@ public class SistemaDialogo : MonoBehaviour
     //Sirve para escribir frase letra por letra.
     private IEnumerator EscribirFrase()
     {
+
         escribiendo = true;
 
         //Limpio el texto
