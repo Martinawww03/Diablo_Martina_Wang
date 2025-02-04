@@ -34206,6 +34206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2479818669064240029}
   - component: {fileID: 2963867029893079336}
+  - component: {fileID: 2963867029893079337}
   m_Layer: 0
   m_Name: Enemigo Visual
   m_TagString: Untagged
@@ -34234,6 +34235,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2963867029893079337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963867029893079335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc1cd688e86dba4885c5dfb874b23fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 469572899}
 --- !u!4 &2971362732493776151
 Transform:
   m_ObjectHideFlags: 0
