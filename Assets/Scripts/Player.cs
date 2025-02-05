@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             if(!agent.pathPending&&agent.remainingDistance<=agent.stoppingDistance)
             {
                 //y por lo tanto, interatuo con el Npc, alt enter
-                ///interactuable.Interactuar(this.transform);
+                interactuable.Interactuar(this.transform);
 
                 //me olvido de cual fue el ultimo click, porque solo quiere intectuar UNA VEZ.
                 ultimoHit = null;
