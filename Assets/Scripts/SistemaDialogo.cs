@@ -9,8 +9,8 @@ public class SistemaDialogo : MonoBehaviour
     //Static = (su valor puede cambiaar) que pertenece a la clase
     public static SistemaDialogo sistema;
 
-    public static SistemaDialogo sD;
-    public static EventManagerSO eventManager;
+    [SerializeField] public static SistemaDialogo sD;
+    [SerializeField] public static EventManagerSO eventManager;
 
     [SerializeField] private GameObject marcoDialogo; //Marco a habilitar/deshabilitar
     [SerializeField] private TMP_Text textoDialogo; //El texto donde se veran reflejados los dialogps
