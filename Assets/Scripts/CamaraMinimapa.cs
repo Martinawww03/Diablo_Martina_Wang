@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamaraMinimapa : MonoBehaviour
 {
 
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerOriginal player;
 
     private Vector3 distanciaAPlayer;
 

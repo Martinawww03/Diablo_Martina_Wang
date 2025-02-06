@@ -55,7 +55,7 @@ public class SistemaDialogo : MonoBehaviour
     }
 
     //Sirve para escribir frase letra por letra.
-    private IEnumerator EscribirFrase()
+    public IEnumerator EscribirFrase()
     {
 
         escribiendo = true;
@@ -79,7 +79,7 @@ public class SistemaDialogo : MonoBehaviour
     }
 
     //Sirve para autocompletar la frase
-    private void CompletarFrase()
+    public void CompletarFrase()
     {
         //Si me piden completar la frase entera, en el texto pongo la frase entera.
         textoDialogo.text = dialogoActual.frases[indiceFraceActual];
@@ -89,7 +89,7 @@ public class SistemaDialogo : MonoBehaviour
         escribiendo = false;
     }
 
-    private void SiguienteFrase()
+    public void SiguienteFrase()
     {
         if(!escribiendo) //Si NO estoy escribiendo
         {

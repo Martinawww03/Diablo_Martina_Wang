@@ -1,17 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDanhable
 {
-    private Camera cam;
-    private NavMeshAgent agent;
+    [SerializeField] private float vidas = 200;
+    [SerializeField] private float interactionDistance = 2f;
+    [SerializeField] private float attackingDistance = 2f;
+    [SerializeField] private float danhoAtaque = 10f;
 
-    //Almaceno el ultimo transform que clcke con el raton
-    private Transform ultimoHit;
+    private int totalCoins;
+    private NavMeshAgent agent;
+    private Camera cam;
+    private Transform lastHit;
+
+    private Transform currentTarget;
+    private PlayerVisualSystem visualSystem;
+
+    public PlayerVisualSystem VisualSystem { get => visualSystem; set => visualSystem = value; }
+    public int TotalCoins { get => totalCoins; set => totalCoins = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,68 +32,68 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale==1)
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-         Movimiento();
-
-        }
-        ComprobarInterracion();
-
-    }
-    
-
-    private void Movimiento()
-    {
-        //Si clicko con el mouse izq
-        if ((Input.GetMouseButtonDown(0)))
-        {
-            //Creo un rayo desde la cámara a la posición del ratón
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            //Y si ese rayo impacta en algo..
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            if(Input.GetMouseButtonDown(0) && Time.timeScale != 0) //Porque si no, "recuerda" hits hechos en pausa.
             {
-                //Le decimos al agente (nosotros) que tiene como destino el punto de impacto
-                agent.SetDestination(hitInfo.point);
-
-
-                //Actualizo el ultimoHit con el transform que acabo de clickr
-                ultimoHit = hitInfo.transform;
+                agent.SetDestination(hit.point);
+                lastHit = hit.transform;
             }
-
         }
-    }
-    private void ComprobarInterracion()
-    {
-        //Si existe un interactuable al cual clické y lleva consigo el script Npc
-        if(ultimoHit != null&&ultimoHit.TryGetComponent(out IInteractuable interactuable))
+
+        if(lastHit)
         {
-            //Actualizo distancia de parada para no "comerme" al Npc
-            agent.stoppingDistance = 2f;
+            visualSystem.StopAttacking();
 
-            //Mira a ver si hemos llegado a dicho destino.
-            if(!agent.pathPending&&agent.remainingDistance<=agent.stoppingDistance)
+            if (lastHit.TryGetComponent(out IInteractuable interactable))
             {
-                //y por lo tanto, interatuo con el Npc, alt enter
-                interactuable.Interactuar(this.transform);
-
-                //me olvido de cual fue el ultimo click, porque solo quiere intectuar UNA VEZ.
-                ultimoHit = null;
-
+                agent.stoppingDistance = interactionDistance;
+                if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    interactable.Interact(transform);
+                    lastHit = null; //Para que no siga interactuando
+                }
             }
-
-            //Si no es un NPC, si no que es un click en el suelo...
-            else if(ultimoHit)
+            else if(lastHit.TryGetComponent(out IDanhable _))
             {
-                //Reseteo el stoppingDIS original
+                currentTarget = lastHit;
+                agent.stoppingDistance = attackingDistance;
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    FaceTarget();
+                    visualSystem.StartAttacking();
+                }
+            }
+            else
+            {
                 agent.stoppingDistance = 0f;
             }
-        
         }
+
     }
 
-    //public void HacerDanho(float danhoAtaque)
-    //{
-    //    Debug.Log("");
-    //}
+    private void FaceTarget()
+    {
+        Vector3 directionToTarget = (currentTarget.transform.position - transform.position).normalized;
+        directionToTarget.y = 0f;
+        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+        transform.rotation = rotationToTarget;
+    }
+
+    public void Atacar()
+    {
+        currentTarget.GetComponent<IDanhable>().RecibirDanho(danhoAtaque);
+    }
+
+    public void RecibirDanho(float danho)
+    {
+        vidas -= danho;
+        if(vidas <= 0)
+        {
+            Destroy(this);
+            visualSystem.EjecutarAnimacionMuerte();
+        }
+    }
+    
 }
